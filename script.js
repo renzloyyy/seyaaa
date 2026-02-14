@@ -1,38 +1,58 @@
 // ==========================================
+// SUSHI POPUP FUNCTIONALITY - MUST BE FIRST
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+  const sushiPopup = document.getElementById("sushiPopup");
+  const closePopup = document.getElementById("closePopup");
+  const enterButton = document.getElementById("enterSite");
+  const popupOverlay = document.getElementById("popupOverlay");
+
+  // Ensure popup is visible on load
+  if (sushiPopup) {
+    sushiPopup.style.display = "flex";
+    sushiPopup.classList.remove("hidden");
+  }
+
+  // Function to close popup
+  function closeSushiPopup() {
+    if (sushiPopup) {
+      sushiPopup.classList.add("hidden");
+      setTimeout(() => {
+        sushiPopup.style.display = "none";
+      }, 500);
+    }
+  }
+
+  // Close button
+  if (closePopup) {
+    closePopup.addEventListener("click", closeSushiPopup);
+  }
+
+  // Enter button
+  if (enterButton) {
+    enterButton.addEventListener("click", closeSushiPopup);
+  }
+
+  // Close on overlay click
+  if (popupOverlay) {
+    popupOverlay.addEventListener("click", closeSushiPopup);
+  }
+
+  // Prevent closing when clicking inside popup content
+  const popupContent = document.querySelector(".popup-content");
+  if (popupContent) {
+    popupContent.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+});
+
+// ==========================================
 // MUSIC FUNCTIONALITY
 // ==========================================
 const bgMusic = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
 let musicStarted = false;
-// ==========================================
-// SUSHI POPUP FUNCTIONALITY
-// ==========================================
-const sushiPopup = document.getElementById("sushiPopup");
-const closePopup = document.getElementById("closePopup");
-const enterButton = document.getElementById("enterSite");
-
-// Function to close popup
-function closeSushiPopup() {
-  sushiPopup.classList.add("hidden");
-  setTimeout(() => {
-    sushiPopup.style.display = "none";
-  }, 500);
-}
-
-// Close button
-closePopup.addEventListener("click", closeSushiPopup);
-
-// Enter button
-enterButton.addEventListener("click", closeSushiPopup);
-
-// Close on overlay click
-document.querySelector(".popup-overlay").addEventListener("click", closeSushiPopup);
-
-// Prevent closing when clicking inside popup content
-document.querySelector(".popup-content").addEventListener("click", (e) => {
-  e.stopPropagation();
-});
-
 
 bgMusic.volume = 0.3;
 
@@ -49,7 +69,7 @@ bgMusic.addEventListener('loadedmetadata', function() {
   });
 });
 
-// Loop between 10-50 seconds
+// Loop between 10-160 seconds
 bgMusic.addEventListener('timeupdate', function() {
   if (bgMusic.currentTime >= 160) {
     bgMusic.currentTime = 10;
