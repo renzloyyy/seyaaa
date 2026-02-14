@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Hearts Day Zeah</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Floating coffee beans and hearts container -->
+    <div class="floating-elements" id="floatingContainer"></div>
+
+    <!-- Main container -->
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="coffee-cup-icon">☕</div>
+        <h1>Happy Hearts Day Zeah!</h1>
+        <p class="subtitle">Brewing memories together <br> (click the images seyatot)</p>
+      </header>
+
+      <!-- Timer Card -->
+      <div class="timer-card fade-in">
+        <div class="coffee-steam"></div>
+        <div id="countdown" class="countdown-display">
+          <span id="days">0</span><span class="label"> days</span><br>
+          <span id="hours">00</span><span class="label">:</span>
+          <span id="minutes">00</span><span class="label">:</span>
+          <span id="seconds">00</span>
+        </div>
+        <small>since our first brew ☕</small>
+      </div>
+
+      <!-- Photo Card 1 -->
+      <section class="photo-section fade-in">
+        <div class="photo-card" data-message="0">
+          <div class="photo-img">
+            <img src="images/image-1.png" alt="Memory 1" />
+          </div>
+          <div class="photo-caption">Our first interaction</div>
+        </div>
+      </section>
+      
+      <div class="message-box" data-message-id="0">
+        <div class="message-content">
+          <span class="quote-mark">"</span>
+          <p>Where it all started.</p>
+          <span class="quote-mark closing">"</span>
+        </div>
+      </div>
+
+      <div class="coffee-divider">
+        <span class="coffee-bean-divider">☕</span>
+        <span class="heart-divider">♥</span>
+        <span class="coffee-bean-divider">☕</span>
+      </div>
+
+      <!-- Photo Card 2 -->
+      <section class="photo-section fade-in">
+        <div class="photo-card" data-message="1">
+          <div class="photo-img">
+            <img src="images/image-2.jpg" alt="Memory 2" />
+          </div>
+          <div class="photo-caption">Our First Call</div>
+        </div>
+      </section>
+      
+      <div class="message-box" data-message-id="1">
+        <div class="message-content">
+          <span class="quote-mark">"</span>
+          <p>First call, first Bisaya 101 Class.</p>
+          <span class="quote-mark closing">"</span>
+        </div>
+      </div>
+
+      <div class="coffee-divider">
+        <span class="coffee-bean-divider">☕</span>
+        <span class="heart-divider">♥</span>
+        <span class="coffee-bean-divider">☕</span>
+      </div>
+
+      <!-- Photo Card 3 -->
+      <section class="photo-section fade-in">
+        <div class="photo-card" data-message="2">
+          <div class="photo-img">
+            <img src="images/image-3.jpg" alt="Memory 3" />
+          </div>
+          <div class="photo-caption">123 or sumthing</div>
+        </div>
+      </section>
+      
+      <div class="message-box" data-message-id="2">
+        <div class="message-content">
+          <span class="quote-mark">"</span>
+          <p>Cheesy seyatot hehehehehehehehe</p>
+          <span class="quote-mark closing">"</span>
+        </div>
+      </div>
+
+      <div class="coffee-divider">
+        <span class="coffee-bean-divider">☕</span>
+        <span class="heart-divider">♥</span>
+        <span class="coffee-bean-divider">☕</span>
+      </div>
+
+      <!-- Photo Card 4 -->
+      <section class="photo-section fade-in">   
+        <div class="photo-card" data-message="3">
+          <div class="photo-img">
+            <img src="images/image-4.jpg" alt="Memory 4" />
+          </div>
+          <div class="photo-caption">BADDIE!</div>
+        </div>
+      </section>
+      
+      <div class="message-box" data-message-id="3">
+        <div class="message-content">
+          <span class="quote-mark">"</span>
+          <p>Ah kagwapa oy! CRUSH CRUSH CRUSH CRUSH CRUSH CRUSH!!!!!</p>
+          <span class="quote-mark closing">"</span>
+        </div>
+      </div>
+
+      <div class="coffee-divider special">
+        <span class="coffee-bean-divider">☕</span>
+        <span class="heart-divider">♥♥♥</span>
+        <span class="coffee-bean-divider">☕</span>
+      </div>
+
+      <!-- Final Section with Coffee Cup Bouquet -->
+      <section class="final-section fade-in">
+        <div class="coffee-bouquet">
+          <div class="coffee-cup main-cup">
+            <div class="cup-body"></div>
+            <div class="cup-handle"></div>
+            <div class="coffee-liquid"></div>
+            <div class="steam-line steam-1"></div>
+            <div class="steam-line steam-2"></div>
+            <div class="steam-line steam-3"></div>
+          </div>
+          <div class="latte-art">♥</div>
+        </div>
+        
+        <div class="final-message">
+          <p id="finalText">
+            Hey seyatot, this is kinda random since we met online and we're 1020+ km apart, but I just wanna be honest…
+
+I know we don't talk much kasi busy ka with papers + barista Wednesdays, and I'm not demanding for your time at all. You've got so many other things your world revolves around and I'm really proud of that. But when we do, it feels super comfy.
+
+And the fact that you mentioned I'd meet your parents first? It shows how intentional you are babe and I really respect that.
+
+I'm not assuming anything, I just really want to get to know you properly, kahit paunti-unti lang for now, seyatot.
+ 
+Happy Valentine's Day seya!!!
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Music control button -->
+    <div class="music-control" id="musicToggle">
+      <span class="music-icon">♪</span>
+    </div>
+    <audio id="bgMusic" loop>
+      <source src="songs/song1.mp3" type="audio/mpeg" />
+    </audio>  
+    <script src="script.js"></script>
+  </body>
+</html>
