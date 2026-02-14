@@ -4,6 +4,35 @@
 const bgMusic = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
 let musicStarted = false;
+// ==========================================
+// SUSHI POPUP FUNCTIONALITY
+// ==========================================
+const sushiPopup = document.getElementById("sushiPopup");
+const closePopup = document.getElementById("closePopup");
+const enterButton = document.getElementById("enterSite");
+
+// Function to close popup
+function closeSushiPopup() {
+  sushiPopup.classList.add("hidden");
+  setTimeout(() => {
+    sushiPopup.style.display = "none";
+  }, 500);
+}
+
+// Close button
+closePopup.addEventListener("click", closeSushiPopup);
+
+// Enter button
+enterButton.addEventListener("click", closeSushiPopup);
+
+// Close on overlay click
+document.querySelector(".popup-overlay").addEventListener("click", closeSushiPopup);
+
+// Prevent closing when clicking inside popup content
+document.querySelector(".popup-content").addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
 
 bgMusic.volume = 0.3;
 

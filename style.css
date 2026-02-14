@@ -636,7 +636,241 @@ body::before {
   content: "♪";
   opacity: 0.5;
 }
+/* ========================================== */
+/* SUSHI BOUQUET POPUP STYLES */
+/* ========================================== */
 
+.sushi-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.sushi-popup.hidden {
+  animation: fadeOut 0.5s ease forwards;
+  pointer-events: none;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(62, 39, 35, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.popup-content {
+  position: relative;
+  background: linear-gradient(135deg, var(--cream), var(--latte));
+  border-radius: 30px;
+  padding: 50px 40px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border: 3px solid var(--cappuccino);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.close-popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--rose-gold);
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.close-popup:hover {
+  background: var(--coffee-dark);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.popup-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--coffee-dark);
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Sushi Bouquet Container */
+.sushi-bouquet-container {
+  text-align: center;
+}
+
+.sushi-bouquet-image {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 40px;
+  animation: gentleBob 3s ease-in-out infinite;
+}
+
+@keyframes gentleBob {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
+}
+
+.sushi-bouquet-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.4));
+}
+
+.popup-message {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  color: var(--rose-gold);
+  margin: 30px 0;
+  animation: pulse 2s ease-in-out infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.enter-button {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  padding: 15px 50px;
+  background: linear-gradient(135deg, var(--rose-gold), var(--coffee-medium));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(183, 110, 121, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.enter-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(183, 110, 121, 0.6);
+  background: linear-gradient(135deg, var(--coffee-medium), var(--coffee-dark));
+}
+
+.enter-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Add sparkle effect */
+.sushi-bouquet-image::before {
+  content: "✨";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 2rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sushi-bouquet-image::after {
+  content: "✨";
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  font-size: 2rem;
+  animation: sparkle 2s ease-in-out infinite 1s;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2) rotate(180deg); 
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .popup-content {
+    padding: 40px 30px;
+  }
+  
+  .sushi-bouquet-image {
+    max-width: 350px;
+  }
+  
+  .popup-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .enter-button {
+    padding: 12px 40px;
+    font-size: 1.1rem;
+  }
+  
+  .popup-message {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup-content {
+    padding: 30px 20px;
+  }
+  
+  .sushi-bouquet-image {
+    max-width: 280px;
+  }
+  
+  .popup-title {
+    font-size: 1.5rem;
+  }
+  
+  .enter-button {
+    padding: 10px 35px;
+    font-size: 1rem;
+  }
+}
 /* Animations */
 @keyframes fadeInDown {
   from {
